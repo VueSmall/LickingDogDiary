@@ -1,3 +1,5 @@
+<!--author:steam-404-->
+<!--舔狗日记-->
 <script>
 
 import {defineComponent} from "vue";
@@ -9,6 +11,7 @@ export default defineComponent({
             url: 'https://v.api.aa1.cn/api/tiangou/index.php',
             note: '',
             error: '',
+            show: false,
         }
     },
     methods: {
@@ -21,6 +24,12 @@ export default defineComponent({
             }).catch(error => {
                 this.error = error
             })
+        },
+        notice() {
+            this.show.value = true;
+            setTimeout(() => {
+                this.show.value = false;
+            }, 2000);
         }
     },
     mounted() {
@@ -30,25 +39,31 @@ export default defineComponent({
 </script>
 
 <template>
-    <p>舔狗日记</p>
+    <p>舔狗日记:</p>
     <a href="#">#深情</a>
     <a href="#">#舔狗</a>
     <div id="content">
-        <span v-html="note"></span>
+        <span id="note" v-html="note"></span>
         <span style="color: red">{{ error }}</span>
     </div>
 </template>
 
 <style scoped>
-*{
+* {
 
 }
-a{
-    padding: 2vh;
+
+a {
+    margin: 2vh;
 }
+
 #content {
     width: 100%;
     border: 1px solid rebeccapurple;
     height: 70%;
+}
+
+#note {
+    color: #fc27ff;
 }
 </style>

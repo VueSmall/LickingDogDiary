@@ -1,3 +1,4 @@
+<!--获取当前时间-->
 <script>
 export default {
     data() {
